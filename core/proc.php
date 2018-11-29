@@ -4,17 +4,17 @@
  */
 class procedimientos
 {
-	public $db;
-	public function __construct()
-	{
-		require_once 'inf.php';
-		try{
-			$this->db = new PDO('mysql:host='.server.';dbname='.db, user, pass);
-		}catch(PDOException $e){
-			console.log($e->getMessage());
-		}
+    public $db;
+    public function __construct()
+    {
+        require_once 'inf.php';
+        try{
+            $this->db = new PDO('mysql:host='.server.';dbname='.db, user, pass);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
 
-	}
+    }
 
     public function blankect_query($table, $fields)
     {
@@ -44,8 +44,8 @@ class procedimientos
         return $res;
     }
 
-  public function insert($sql)
-  {
+    public function insert($sql)
+    {
     $query = $this->db->prepare($sql);
     try{
       $res = $query->execute();
@@ -53,6 +53,16 @@ class procedimientos
       $res = $e->getMessage();
     }
     return $res;
-  }
+    }
+    public function delete($table, $condition){
+        $sql = "delete from $table where $condition";
+        $query = $this->db->prepare($sql);
+        try{
+            $res = $query->execute();
+        }catch (PDOException $e){
+            $res = $e->getMessage();
+        }
+        return $res;
+    }
 
 }
