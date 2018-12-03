@@ -1,6 +1,4 @@
 <?php
-error_reporting(0);
-require_once 'proc.php';
 require_once '../../core/proc.php';
 
 $db = new procedimientos();

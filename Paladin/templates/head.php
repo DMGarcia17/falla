@@ -1,4 +1,5 @@
 <?php
+        error_reporting(0);
         date_default_timezone_set('America/El_Salvador');
         header("Content-Type: text/html;charset=iso-8859-1");
 ?>

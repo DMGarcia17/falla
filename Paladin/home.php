@@ -3,6 +3,8 @@ session_start();
 if($_SESSION['username'] == '' || !isset($_SESSION['username'])){
     header('location: ../');
 }
+ini_set('post_max_size','1000M');
+ini_set('upload_max_filesize','1000M');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -78,13 +80,67 @@ if($_SESSION['username'] == '' || !isset($_SESSION['username'])){
                     </div>
                     <div class="modal-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action">Cambiar contrase&ntilde;a</a>
-                            <a href="#" class="list-group-item list-group-item-action">Cerrar Sesi&oacute;n</a>
+                            <a href="" id="cpass" class="list-group-item list-group-item-action">Cambiar contrase&ntilde;a</a>
+                            <a href="procedimientos/seesion.php" class="list-group-item list-group-item-action">Cerrar Sesi&oacute;n</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <div class="modal fade" id="caps" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Cambiar contrase&ntilde;a</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <form action="procedimientos/cpass.php" method="post">
+                    <div class="modal-body">
+                       <label for="opass">Contrase&ntilde;a antigua</label>
+                       <input type="password" name="opass" required class="form-control" id="opass">
+                        <label for="npass">Nueva contrase&ntilde;a</label>
+                        <input type="password" name="npass" required class="form-control" id="npass">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                        <button class="btn btn-success" type="submit">Cambiar contrase&ntilde;a</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Alerta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                       <?php
+                        switch($_GET['wra']){
+                            case 1:
+                                echo "Lamentamos decir que no se ha podido cambiar la contrase&ntilde;a intente de nuevo m&aacute;s tarde";
+                                break;
+                            case 2:
+                                echo "Lamentablemente no se conseguido cambiar la clave de acceso debo a los siguiente:<br>".$_SESSION['wra'];
+                                break;
+                            case 0:
+                                echo $_SESSION['wra'];
+                        }
+                        
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <script>
             $("#menu-toggle").click(function(e) {
                 e.preventDefault();
@@ -94,6 +150,16 @@ if($_SESSION['username'] == '' || !isset($_SESSION['username'])){
             if (screen.width > 720) {
                 $("#menu-toggle").click();
             }
+            $("#cpass").click(function(event){
+                event.preventDefault();
+                cpass();
+            }); 
+            
+            <?php
+            if(isset($_GET['wra'])){
+                echo "$(\"#error\").modal(\"show\");";
+            }
+            ?>
 
         </script>
     </body>

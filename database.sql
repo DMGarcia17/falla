@@ -1,13 +1,13 @@
-# Creación de la Base de Datos
+# Creaci&oacute;n de la Base de Datos
 
 CREATE DATABASE punto_comercial;
 USE punto_comercial;
 
-# Creación de las tablas
+# Creaci&oacute;n de las tablas
 
 CREATE TABLE usuarios(
     username VARCHAR (16) NOT NULL,
-    pass VARCHAR (50) NOT NULL,`punto_comercial`
+    pass VARCHAR (50) NOT NULL,
     nombre VARCHAR (200) NOT NULL,
     PRIMARY KEY (username)
 )
@@ -29,7 +29,7 @@ ON categorias (id_cat);
 
 # intento 1 de galeria
 
-CREATE TABLE label_img(
+/**CREATE TABLE label_img(
     id_label INT NOT NULL AUTO_INCREMENT,
     label VARCHAR (150),
     PRIMARY KEY (id_label)
@@ -51,7 +51,7 @@ CREATE TABLE img_cat(
     CONSTRAINT img_lab_fk FOREIGN KEY (label) REFERENCES label_img(id_label)
 )
   ENGINE = INNODB
-  DEFAULT CHARSET = utf8;
+  DEFAULT CHARSET = utf8;*/
 
 
 # intento 2 de galeria
@@ -61,6 +61,7 @@ CREATE TABLE proyectos(
     n_proy VARCHAR(300) NOT NULL,
     img_proy VARCHAR(900) NOT NULL,
     categoria VARCHAR(200) NOT NULL,
+    folder VARCHAR (300) NOT NULL,
     PRIMARY KEY (id_proyecto),
     CONSTRAINT fk_categorias FOREIGN KEY (categoria) REFERENCES categorias (id_cat) 
     ON DELETE CASCADE ON UPDATE CASCADE
@@ -94,7 +95,7 @@ CREATE TABLE img_sli(
   DEFAULT CHARSET = utf8;
 
 
-# Inserción de datos
+# Inserci&oacute;n de datos
 
 INSERT INTO img_sli VALUES 
 (NULL, 'assets/img/slider/slide1.jpg'),
@@ -105,8 +106,8 @@ INSERT INTO usuarios VALUES
 ('a', '0cc175b9c0f1b6a831c399e269772661', 'Administrador de Prueba');
 
 INSERT INTO categorias VALUES 
-('remodelacion', 'Remodelación'),
-('diseno', 'Diseño'),
+('remodelacion', 'Remodelaci&oacute;n'),
+('diseno', 'Dise&ntilde;o'),
 ('kioscos', 'Kioscos');
 
 INSERT INTO label_img VALUES 
@@ -133,9 +134,10 @@ INSERT INTO img_cat VALUES
 
 # datos de prueba
 
-INSERT INTO proyectos VALUES (NULL, 'proyecto1', 'assets/img/proyecto1/portada.jpg', 'remodelacion'),
-(NULL, 'proyecto2', 'assets/img/proyecto2/portada.jpg', 'diseno'),
-(NULL, 'proyecto3', 'assets/img/proyecto3/portada.jpg', 'kioscos');
+INSERT INTO proyectos VALUES 
+(NULL, 'proyecto1', 'assets/img/proyecto1/portada.jpg', 'remodelacion', 'assets/img/proyecto1/'),
+(NULL, 'proyecto2', 'assets/img/proyecto2/portada.jpg', 'diseno', 'assets/img/proyecto2/'),
+(NULL, 'proyecto3', 'assets/img/proyecto3/portada.jpg', 'kioscos', 'assets/img/proyecto3/');
 
 INSERT INTO img_proy VALUES (NULL, 'assets/img/proyecto1/img1.jpg', 1),
 (NULL, 'assets/img/proyecto1/img2.jpg', 1),

@@ -33,7 +33,7 @@ require_once 'templates/nav.php';
 		<div class="col-lg-12 col-md-12">
 			<div class="tittle">
 				<div style="color: #666666;">
-					<h1>QUIÉNES SOMOS</h1>
+					<h1>QUI&Eacute;NES SOMOS</h1>
 				</div>
 				<img src="assets/img/banner.png" class="img-fluid" alt="Banner">
 			</div>
@@ -48,7 +48,7 @@ require_once 'templates/nav.php';
 				<br>
 				<h4>Quienes somos</h4>
 				<span>
-					Somos un socio de servicios  de diseño y producción de experiencias en el punto de venta. Ofrecemos proyectos en cualquier entorno de punto de venta. Trabajamos desde la idea creativa a la implementación, pasando por la solución técnica y la producción. Nuestra experiencia como asesores de multiples emprendedores y marcas regionales, ha basado, configurado y esta constantemente reinventando nuestra metodologia de trabajo. Somos eficaces trabajando bajo presión, cumplimos con tiempos de entregas breves, 
+					Somos un socio de servicios  de dise&ntilde;o y producci&oacute;n de experiencias en el punto de venta. Ofrecemos proyectos en cualquier entorno de punto de venta. Trabajamos desde la idea creativa a la implementaci&oacute;n, pasando por la soluci&oacute;n t&eacute;cnica y la producci&oacute;n. Nuestra experiencia como asesores de multiples emprendedores y marcas regionales, ha basado, configurado y esta constantemente reinventando nuestra metodologia de trabajo. Somos eficaces trabajando bajo presi&oacute;n, cumplimos con tiempos de entregas breves, 
 					somos flexibles en el desarrollo y proactivos  frente a las sugerencias     
 				</span>
 				<span>
@@ -56,16 +56,16 @@ require_once 'templates/nav.php';
 					<h4>Valores:</h4>
 					<p style="margin: 0 !important;">
 						<p class="font-weight-bold" style="margin: 0 !important;">* Creatividad: </p>
-						Equipo de diseñadores con ideas innovadoras, jóvenes, con estilo y buen gusto.
+						Equipo de dise&ntilde;adores con ideas innovadoras, j&oacute;venes, con estilo y buen gusto.
 					</p>
 					<p style="margin: 0 !important;">
 						<p class="font-weight-bold" style="margin: 0 !important;">* Criterio: </p>
-						Una manera de hacer consulting. Una filosofía. Una forma 
-		   				de trabajar ligada a la experiencia de más de 10 años.
+						Una manera de hacer consulting. Una filosof&iacute;a. Una forma 
+		   				de trabajar ligada a la experiencia de m&aacute;s de 10 a&ntilde;os.
 					</p>
 					<p style="margin: 0 !important;">
 						<p class="font-weight-bold" style="margin: 0 !important;">* Independencia: </p>
-						Producción interna, Equipos propios y colaboradores puntuales. Más opciones. Más flexibles. Mejores precios.
+						Producci&oacute;n interna, Equipos propios y colaboradores puntuales. M&aacute;s opciones. M&aacute;s flexibles. Mejores precios.
 					</p>
 					<p style="margin: 0 !important;">
 						<p class="font-weight-bold" style="margin: 0 !important;">* Compromiso:</p>Fidelidad. Rigor. Transparencia.
@@ -73,7 +73,7 @@ require_once 'templates/nav.php';
 				</span>
 				<span>
 					<h4>Que hacemos:</h4>
-					Asesoria - Diseño - Producción - Coordinación  -  Montaje
+					Asesoria - Dise&ntilde;o - Producci&oacute;n - Coordinaci&oacute;n  -  Montaje
 				</span>
 				<span>
 					<br><br>

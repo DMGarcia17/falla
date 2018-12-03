@@ -93,7 +93,7 @@ if($_SERVER['REQUEST_URI'] == '/carrusel/administrador/inicio.php'){
                 <div class="modal-body">
                     <form action="procedimientos/slider.php?opt=1" method="post" enctype="multipart/form-data">
                         <label for="slider"><input type="file" id="slider" name="slider" class="form-control" accept="image/jpeg" required></label>
-                        <button class="btn btn-primary" type="submit">Guardar nueva fotografía</button>
+                        <button class="btn btn-primary" type="submit">Guardar nueva fotograf&iacute;a</button>
                     </form>
                 </div>
                 <div class="modal-footer">

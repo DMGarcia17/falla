@@ -8,7 +8,12 @@
             },
     success: function (res) {
       $("#gallery").fadeOut('slow').html(res).fadeIn('slow');
-      baguetteBox.run('.compact-gallery', { animation: 'slideIn'});
+      var num = $("#cuantos").val();
+		for(var x=0; x<=num; x++){
+			baguetteBox.run('.gallery'+x, { animation: 'slideIn'});	
+		}
+		
+		
     } 
   });
 }
@@ -29,4 +34,11 @@ function list(id, cont){
     $("#cat").val(cont);
     $("#del").attr("href", "procedimientos/categories.php?opt=2&id_cat="+id);
      $("#lista").modal("show");
+}
+
+
+
+function cpass(){
+    $("#user").modal("hide");
+    $("#caps").modal("show");
 }
