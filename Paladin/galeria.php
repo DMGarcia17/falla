@@ -10,11 +10,11 @@ if($_SERVER['REQUEST_URI'] == '/carrusel/administrador/galeria.php'){
     <table class="table-hover table-bordered">
         <tr>
             <th class="col">Nombre del proyecto</th>
-            <th class="col" colspan="4">Opciones</th>
+            <th class="col" colspan="5">Opciones</th>
         </tr>
 
         <?php
-            $res = $db->blankect_query("proyectos", "*");
+            $res = $db->query( "select * from proyectos order by p_rank");
             foreach($res as $r){
                 echo "<tr>
                                 <td>{$r['n_proy']} </td>
@@ -24,6 +24,10 @@ if($_SERVER['REQUEST_URI'] == '/carrusel/administrador/galeria.php'){
                                 <td class=\"text-center\">
                                     <button class=\"btn btn-primary\" onclick='$(\"#id_proy\").val(\"{$r['id_proyecto']}\")' data-toggle=\"modal\" data-target=\"#cover\" title=\"Subir foto de portada de la galeria\">
                                         <i class=\"fas fa-tablet\"></i>
+                                    </button></td>
+                                <td class=\"text-center\">
+                                    <button class=\"btn btn-primary\" onclick='$(\"#rank\").val(\"{$r['p_rank']}\"); $(\"#id_proyR\").val(\"{$r['id_proyecto']}\");'  data-toggle=\"modal\" data-target=\"#chrank\" title=\"Cambiar prioridad del proyecto\">
+                                       <i class=\"fas fa-star\"></i>
                                     </button></td>
                                 <td class=\"text-center\">
                                     <button class=\"btn btn-primary\" onclick='$(\"#id_proyG\").val(\"{$r['id_proyecto']}\")'  data-toggle=\"modal\" data-target=\"#sran\" title=\"Subir rango de imagenes de la galeria\">
@@ -38,7 +42,7 @@ if($_SERVER['REQUEST_URI'] == '/carrusel/administrador/galeria.php'){
             }
         ?>
         <tr>
-            <td colspan="5">
+            <td colspan="6">
                 <button class="btn btn-info btn-block" data-toggle="modal" data-target="#nuevo"><i class="fas fa-project-diagram"></i> Agregar un nuevo proyecto a la galer&iacute;a</button>
             </td>
         </tr>
@@ -115,6 +119,31 @@ if($_SERVER['REQUEST_URI'] == '/carrusel/administrador/galeria.php'){
     </div>
 </div>
 
+<div class="modal fade" id="chrank" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Cambiar Prioridad de Proyecto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="procedimientos/gal.php?opt=6" method="post">
+                <div class="modal-body">
+                    <small>En el siguiente cuadro de texto se muestra el indice de prioridad del proyecto (Siendo 1 el m&aacute;s importante)</small><br><br>
+                    <input type="hidden" name="id_proyR" id="id_proyR">
+                    <input type="text" name="rank" id="rank" class="form-control">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-success" type="submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -138,8 +167,8 @@ if($_SERVER['REQUEST_URI'] == '/carrusel/administrador/galeria.php'){
                         }
                         ?>
                     </select>
-                     <label for="port">Portada del proyecto</label>
-                     <input type="file" id="port" name="port" class="form-control" accept="image/jpeg" required>
+                    <label for="port">Portada del proyecto</label>
+                    <input type="file" id="port" name="port" class="form-control" accept="image/jpeg" required>
                     <label for="range"> Imagenes de la galer&iacute;a</label>
                     <input type="file" id="rangen[]" name="rangen[]" class="form-control" accept="image/jpeg" required multiple="">
                 </div>
@@ -173,7 +202,7 @@ if($_SERVER['REQUEST_URI'] == '/carrusel/administrador/galeria.php'){
             </form>
         </div>
     </div>
-</div> 
+</div>
 
 <div class="modal fade" id="modt" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -197,7 +226,7 @@ if($_SERVER['REQUEST_URI'] == '/carrusel/administrador/galeria.php'){
             </form>
         </div>
     </div>
-</div> 
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/tooltipster@4.2.6/dist/js/tooltipster.bundle.min.js"></script>
 <script>

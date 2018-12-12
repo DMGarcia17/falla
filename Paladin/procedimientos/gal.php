@@ -23,6 +23,31 @@ function rmdir_recursive($dir) {
     }
     rmdir($dir);
 }
+function def_rank($id_p, $rank){
+    $dbl = new procedimientos();
+    $pro = $dbl->query("SELECT id_proyecto, p_rank FROM proyectos WHERE p_rank >= $rank ORDER BY p_rank");
+    if(count($pro)>=1){
+        var_dump($pro);
+        foreach($pro as $p){
+            if($dbl->insert('update proyectos set p_rank='.($p['p_rank']+1).' where id_proyecto='.$p['id_proyecto'])){
+            }else{
+                return 3;
+            }
+        }
+        if($dbl->insert('update proyectos set p_rank='.$rank.' where id_proyecto='.$id_p)){
+            return 1;
+        }else{
+            return 0;
+        }
+    }else{
+        if($dbl->insert('update proyectos set p_rank='.$rank.' where id_proyecto='.$id_p)){
+            return 1;
+        }else{
+            return 2;
+        }
+    }
+}
+
 function genf(){
     $num = rand(100000000, 999999999);
     if (file_exists('../../assets/img/'.$num)){
@@ -35,10 +60,14 @@ switch($archivo){
     case 0:
         $folder = 'assets/img/'.genf().'/';
         if(mkdir('../../'.$folder)){
+            echo $folder;
             if(mkdir('../../'.$folder.'img')){
+                echo "si";
                 if($_FILES['port']['type'] == 'image/jpeg'){
+                    
                     if(move_uploaded_file($_FILES['port']['tmp_name'], '../../'.$folder.'portada.jpg')){
-                        if($db->insert('insert into proyectos values (null, \''.$_POST['nproy'].'\', \''.$folder.'portada.jpg\', \''.$_POST['cate'].'\', \''.$folder.'\')')){
+                        $max = $db->query("SELECT (MAX(p_rank)) as 'nrank' FROM proyectos");
+                        if($db->insert('insert into proyectos values (null, \''.($max[0]['nrank']+1).'\', \''.$_POST['nproy'].'\', \''.$folder.'portada.jpg\', \''.$_POST['cate'].'\', \''.$folder.'\')')){
                             $cont = 0;
                             $id = $db->query("select id_proyecto from proyectos where n_proy='{$_POST['nproy']}'");
                             foreach($_FILES["rangen"]['tmp_name'] as $key => $tmp_name){
@@ -54,14 +83,26 @@ switch($archivo){
                                         echo "Ha ocurrido un error, por favor int&eacute;ntelo de nuevo.<br>";
                                     }
                                     closedir($dir);
+                                }else{
+                                    echo "No se subieron";
                                 }
                                 $cont++;
                             }
                             header('location: ../home.php?err=0&p=Z2FsZXJpYS5waHA=');
+                        }else{
+                            echo "No se registraron las imagenes";
                         }
+                    }else{
+                        echo 'No se ha podido mover la portada';
                     }
+                }else{
+                    echo 'Las imagenes no estan en el formato correcto';
                 }
+            }else{
+                echo 'No se podido crear el directorio para imagenes';
             }
+        }else{
+            echo 'No se ha podido crear el directorio del proyecto';
         }
         break;
     case 1:
@@ -123,5 +164,14 @@ switch($archivo){
                   header('location: ../home.php?err=1&p=Z2FsZXJpYS5waHA=');
              }
          }
+        break;
+    case 6:
+        if(def_rank($_POST['id_proyR'], $_POST['rank']) == true){
+            header('location: ../home.php?err=0&p=Z2FsZXJpYS5waHA=');
+        }else{
+            header('location: ../home.php?err=1&p=Z2FsZXJpYS5waHA=');
+           
+        }
+        
         break;
 }

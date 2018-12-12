@@ -30,7 +30,7 @@ require_once 'templates/nav.php';
                 });
                 $(".cont").css("padding-left", "5%");
             }
-            cargarGaleria("");
+            cargarGaleria('*', '1');
         });
 
     </script>
@@ -48,13 +48,13 @@ require_once 'templates/nav.php';
         <div class="container">
             <div class="container">
                 <div class="row text-center">
-                  <div class="col-lg-3 col-md-6 col-sm-6" style="height: 30px !important;"><span class="categoria" id="todos"  onclick="cargarGaleria('')">Todos</span></div>
-                   <?php
+                    <div class="col-lg-3 col-md-6 col-sm-6" style="height: 30px !important;"><span class="categoria actcat" id="todos" onclick="cargarGaleria('*', '1')">Todos</span></div>
+                    <?php
                     require_once('core/proc.php');
                     $db = new procedimientos();
                     $res = $db->blankect_query("categorias", "*");
                     foreach($res as $r){
-                        echo "<div class=\"col\" style=\"height: 30px !important;\"><span class=\"categoria\" onclick=\"cargarGaleria('{$r['id_cat']}')\">{$r['categoria']}</span></div>";
+                        echo "<div class=\"col\" style=\"height: 30px !important;\"><span class=\"categoria\" id=\"{$r['id_cat']}\" onclick=\"cargarGaleria('{$r['id_cat']}', '1')\">{$r['categoria']}</span></div>";
                     }
                     ?>
                 </div>
@@ -67,6 +67,13 @@ require_once 'templates/nav.php';
 
                     </div>
                 </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mx-auto">
+                <div id="pag">
+                    
+                </div>
             </div>
         </div>
         <div style="height: 200px; background: #CDCDCD;">

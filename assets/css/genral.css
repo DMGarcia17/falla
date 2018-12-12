@@ -148,6 +148,17 @@ body{
   50%  { background-color: rgba(240, 16, 128, 0.2); }
   100% { background-color: rgba(240, 16, 128, 0.5);  color: #FFF;}
 }
+
+.actual{
+    background-color: #fa0573;
+    color: #FFF;
+}
+
+.actual:hover{
+    background-color: #fa0573;
+    color: #FFF;
+}
+
 .categoria{
 	margin: 10px !important;
 	padding: 10px !important;

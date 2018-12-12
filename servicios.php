@@ -35,43 +35,59 @@ require_once 'templates/nav.php';
 		</div>
 		<div class="row" style="text-align: justify !important;">
 			<div class="col-lg-4 col-md-12 col-sm-12">
-				<img src="assets/img/punto.png" alt="" style="height: 20% !important;" class="img-fluid">
+				<img src="assets/img/construccion.png" alt="" style="height: 20% !important;" class="img-fluid">
 				<br><br>
-				<h4>Servicio</h4>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, dolor, ipsa? Saepe blanditiis ipsa quia ullam tempore delectus iste repellat, culpa fugit natus quas nostrum nisi numquam provident velit voluptatibus.
+				<h4>Construcci&oacute;n</h4>
+				
 			</div>
 			<div class="col-lg-4 col-md-12 col-sm-12">
-				<img src="assets/img/punto.png" alt="" style="height: 20% !important;" class="img-fluid">
+				<img src="assets/img/diseño.png" alt="" style="height: 20% !important;" class="img-fluid">
 				<br><br>
-				<h4>Servicio</h4>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab debitis optio nemo laborum iusto blanditiis excepturi, minima, voluptatibus recusandae minus, officia inventore! Molestiae qui corrupti harum a sint magnam enim.
+				<h4>Diseño de Interiores</h4>
+				
 			</div>
 			<div class="col-lg-4 col-md-12 col-sm-12">
-				<img src="assets/img/punto.png" alt="" style="height: 20% !important;" class="img-fluid">
+				<img src="assets/img/arquitectura.png" alt="" style="height: 20% !important;" class="img-fluid">
 				<br><br>
-				<h4>Servicio</h4>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum perspiciatis quas beatae rerum a saepe facilis officia repudiandae sed assumenda, recusandae itaque vel aliquid error rem voluptatem at vero, earum.
+				<h4>Arquitectura</h4>
+			
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-md-12 col-sm-12">
-				<img src="assets/img/punto.png" alt="" style="height: 20% !important;" class="img-fluid">
+				<img src="assets/img/kioscos.png" alt="" style="height: 20% !important;" class="img-fluid">
 				<br><br>
-				<h4>Servicio</h4>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nesciunt iure cupiditate in molestiae facere quos quas odit ea aut, neque nihil dignissimos, accusamus ab! Et nihil iste, voluptate reprehenderit!
+				<h4>Kioskos Comerciales</h4>
+				
 			</div>
 			<div class="col-lg-4 col-md-12 col-sm-12">
-				<img src="assets/img/punto.png" alt="" style="height: 20% !important;" class="img-fluid">
+				<img src="assets/img/diseño_t.png" alt="" style="height: 20% !important;" class="img-fluid">
 				<br><br>
-				<h4>Servicio</h4>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde illum facere, tenetur itaque, facilis iusto suscipit cum nemo recusandae nam ducimus incidunt amet earum, animi consequuntur culpa distinctio eveniet reprehenderit?
+				<h4>Diseño de Tienda</h4>
+				
 			</div>
 			<div class="col-lg-4 col-md-12 col-sm-12">
-				<img src="assets/img/punto.png" alt="" style="height: 20% !important;" class="img-fluid">
+				<img src="assets/img/rotulacion.png" alt="" style="height: 20% !important;" class="img-fluid">
 				<br><br>
-				<h4>Servicio</h4>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quibusdam voluptatum repudiandae iste facere, fugiat consequatur quod deleniti, accusamus autem commodi quisquam deserunt a numquam! Ullam reiciendis, delectus quas voluptatem.
+				<h4>Rotulación Comercial</h4>
+				
 			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-4 col-md-12 col-sm-12">
+				<img src="assets/img/mobiliario.png" alt="" style="height: 20% !important;" class="img-fluid">
+				<br><br>
+				<h4>Mobiliario a Medida</h4>
+				
+			</div>
+			<div class="col-lg-4 col-md-12 col-sm-12">
+				<img src="assets/img/diseño_t.png" alt="" style="height: 20% !important;" class="img-fluid">
+				<br><br>
+				<h4>Stand y Mobiliario Efímero</h4>
+				
+			</div>
+			
 		</div>
 	</div>
 	<div style="height: 200px; background: #CDCDCD;">

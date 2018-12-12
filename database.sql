@@ -1,4 +1,4 @@
-# Creaci&oacute;n de la Base de Datos
+0# Creaci&oacute;n de la Base de Datos
 
 CREATE DATABASE punto_comercial;
 USE punto_comercial;
@@ -58,6 +58,7 @@ CREATE TABLE img_cat(
 
 CREATE TABLE proyectos(
     id_proyecto INT NOT NULL AUTO_INCREMENT,
+    p_rank INT NOT NULL,
     n_proy VARCHAR(300) NOT NULL,
     img_proy VARCHAR(900) NOT NULL,
     categoria VARCHAR(200) NOT NULL,
@@ -103,7 +104,7 @@ INSERT INTO img_sli VALUES
 (NULL, 'assets/img/slider/slide3.jpg');
 
 INSERT INTO usuarios VALUES
-('a', '0cc175b9c0f1b6a831c399e269772661', 'Administrador de Prueba');
+('punto', '0cc175b9c0f1b6a831c399e269772661', 'Administrador de Prueba');
 
 INSERT INTO categorias VALUES 
 ('remodelacion', 'Remodelaci&oacute;n'),
@@ -135,9 +136,9 @@ INSERT INTO img_cat VALUES
 # datos de prueba
 
 INSERT INTO proyectos VALUES 
-(NULL, 'proyecto1', 'assets/img/proyecto1/portada.jpg', 'remodelacion', 'assets/img/proyecto1/'),
-(NULL, 'proyecto2', 'assets/img/proyecto2/portada.jpg', 'diseno', 'assets/img/proyecto2/'),
-(NULL, 'proyecto3', 'assets/img/proyecto3/portada.jpg', 'kioscos', 'assets/img/proyecto3/');
+(NULL, 1, 'proyecto1', 'assets/img/proyecto1/portada.jpg', 'remodelacion', 'assets/img/proyecto1/'),
+(NULL, 2, 'proyecto2', 'assets/img/proyecto2/portada.jpg', 'diseno', 'assets/img/proyecto2/'),
+(NULL, 3, 'proyecto3', 'assets/img/proyecto3/portada.jpg', 'kioscos', 'assets/img/proyecto3/');
 
 INSERT INTO img_proy VALUES (NULL, 'assets/img/proyecto1/img1.jpg', 1),
 (NULL, 'assets/img/proyecto1/img2.jpg', 1),

@@ -50,6 +50,7 @@ if($_SERVER['REQUEST_URI'] == '/carrusel/administrador/inicio.php'){
            }
        }
        ?>
+       
 </div>
 <div style="">
     <div class="modal fade" id="modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

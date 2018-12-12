@@ -197,13 +197,13 @@ require_once 'templates/nav.php';
 	function chFrase(num) {
 		switch(num){
 			case 1:
-		        demo("Frase 1");
+		        demo("");
 		        break;
 		    case 2:
-		        demo("Frase 2");
+		        demo("");
 		        break;
 	        case 3:
-		        demo("Frase 3");
+		        demo("");
 		        break;
 			}
 	}
